@@ -1,0 +1,11 @@
+<div>
+    <h1>Festivals</h1>
+    
+    <ul>
+        <% festivals.each do |festival| %>
+        <li>
+            <%= link_to festival.name, festival_path(festival) %>
+        </li>
+        <% end %>
+    </ul>
+</div>

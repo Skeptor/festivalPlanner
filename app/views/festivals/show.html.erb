@@ -1,0 +1,21 @@
+<div class='origin-center'>
+  <div id='festival_name'  class='font-mono text-2xl font-semibold p-6 max-w-sm mx-auto'>
+    <%= festival.name %>
+  </div>
+
+  <div id='stages' class="grid grid-flow-col auto-cols-max gap-16 w-full" >
+    <% festival.stages.each do |stage| %>
+      <div class='w-full'>
+        <h2><%= stage.name %></h2>
+        <br />
+        <ul>
+          <% stage.concerts.each do |concert| %>
+            <li>
+              <%= concert.start_hour %> - <%= concert.group.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>

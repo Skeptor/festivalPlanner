@@ -1,0 +1,13 @@
+<div>
+    <h1>Concerts</h1>
+    
+    <ul>
+        <% concerts.each do |concert| %>
+        <li>
+            <%= concert.stage.festival.name %> - <%= concert.stage.name %>
+            <%= concert.group.name %>
+            <%= concert.start_time %>
+        </li>
+        <% end %>
+    </ul>
+</div>
