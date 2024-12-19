@@ -4,7 +4,6 @@ class CreateConcerts < ActiveRecord::Migration[7.2]
       t.references :stage, null: false, foreign_key: true
       t.references :group, null: false, foreign_key: true
       t.integer :day
-      t.integer :stage
       t.time :start_time
 
       t.timestamps

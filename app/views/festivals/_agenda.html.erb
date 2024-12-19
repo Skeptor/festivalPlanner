@@ -1,0 +1,18 @@
+<% concerts = agenda.agenda_concerts.where(discarded: false) %>
+<% discarded_concerts = agenda.agenda_concerts.where(discarded: true) %>
+
+  <p>Agenda</p>
+  <% concerts.each do |agenda_concert| %>
+    <li>
+      Escenario <%= agenda_concert.concert.stage.id %>
+      <%= agenda_concert.concert.start_hour %> - <%= agenda_concert.concert.group.name %>
+    </li>
+  <% end %>
+
+  <p>Conciertos descartados</p>
+  <% discarded_concerts.each do |discarded_concert| %>
+    <li>
+      Escenario <%= discarded_concert.concert.stage.id %>
+      <%= discarded_concert.concert.start_hour %> - <%= discarded_concert.concert.group.name %>
+    </li>
+  <% end %>

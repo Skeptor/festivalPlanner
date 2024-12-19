@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "festivals#index"
 
-  resources :festivals
+  resources :festivals do
+    post :update_agenda, on: :member
+  end
   resources :groups
   resources :stages
   resources :concerts

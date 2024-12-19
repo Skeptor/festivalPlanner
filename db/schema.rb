@@ -10,12 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_20_084741) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_09_184543) do
+  create_table "agenda_concerts", force: :cascade do |t|
+    t.integer "agenda_id"
+    t.integer "concert_id"
+    t.boolean "discarded", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agenda_id"], name: "index_agenda_concerts_on_agenda_id"
+    t.index ["concert_id"], name: "index_agenda_concerts_on_concert_id"
+  end
+
+  create_table "agendas", force: :cascade do |t|
+    t.integer "festival_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["festival_id"], name: "index_agendas_on_festival_id"
+  end
+
   create_table "concerts", force: :cascade do |t|
     t.integer "stage_id", null: false
     t.integer "group_id", null: false
     t.integer "day"
-    t.integer "stage"
     t.time "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
