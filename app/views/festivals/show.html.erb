@@ -1,19 +1,21 @@
 <% agenda = Agenda.find_by(festival: ) %>
 
-<div class='origin-center'>
+<div class='origin-center w-full'>
   <div id='festival_name'  class='font-mono text-2xl font-semibold p-6 max-w-sm mx-auto'>
     <%= festival.name %>
   </div>
 
-  <div id='stages' class='grid grid-cols-<%= festival.stages.count %> gap-4' >
-    <%= form_tag update_agenda_festival_path(festival), method: :post do %>
+  <%= form_tag update_agenda_festival_path(festival), method: :post do %>
+    <div id='stages' class='columns-<%= festival.stages.count %> columns-md gap-4' >
       <% festival.stages.each do |stage| %>
-        <div class='grid grid-rows-<%= stage.concerts.count %> p4 border rounded'>
+      <div id='stage' class=''>
+        <div id='stage_header' class='p4 border rounded'>
           <h2 class='text-xl font-bold mb-4'><%= stage.name %></h2>
-          <br />
+        </div>
+        <div id='stage_concerts'>
           <ul>
             <% stage.concerts.each do |concert| %>
-              <div class='mb-2'>
+              <div id=<%="concert_#{concert.id}"%> class='mb-2'>
                 <li>
                   <%= check_box_tag "concerts[]", concert.id, id: "concert_#{concert.id}" %>
                   <%= concert.start_hour %> - <%= concert.group.name %>
@@ -22,13 +24,14 @@
             <% end %>
           </ul>
         </div>
+      </div>
       <% end %>
 
       <%= submit_tag 'Generar Agenda', class: 'btn-primary float-right'%>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
-  <div id='agenda' class='float-right'> 
+  <div id='agenda' class=''> 
     <%= render partial: 'agenda', locals: { agenda: } if !agenda.agenda_concerts.empty? %>
   </div>
 </div>
