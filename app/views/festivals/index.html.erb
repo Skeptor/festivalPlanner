@@ -1,10 +1,23 @@
 <div>
-    <h1>Festivals</h1>
-    
+    <h1>Lista de festivales</h1>
+    <br />
     <ul>
         <% festivals.each do |festival| %>
         <li>
-            <%= link_to festival.name, festival_path(festival) %>
+            <%= link_to festival_path(festival) do %>
+                <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                    <img class="w-full" src="https://yt3.googleusercontent.com/ytc/AIdro_mJL8Wd4ALGm0dIZgCmULNIEw1-vRuh84Ya7WlORNJxPP4=s900-c-k-c0x00ffffff-no-rj" alt="Foto">
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2"><%= festival.name %></div>
+                        <p class="text-gray-700 text-base">
+                            Festival de rojos
+                        </p>
+                    </div>
+                    <div class="px-6 pt-4 pb-2">
+                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#rock</span>
+                    </div>
+                </div>
+            <% end %>
         </li>
         <% end %>
     </ul>
