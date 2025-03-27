@@ -9,17 +9,15 @@
     <div id='stages' class='columns-<%= festival.stages.count %> columns-md gap-4' >
       <% festival.stages.each do |stage| %>
       <div id='stage' class=''>
-        <div id='stage_header' class='p4 border rounded'>
-          <h2 class='text-xl font-bold mb-4'><%= stage.name %></h2>
-        </div>
         <div id='stage_concerts'>
           <ul>
             <% stage.concerts.each do |concert| %>
-              <div id=<%="concert_#{concert.id}"%> class='mb-2'>
-                <li>
-                  <%= check_box_tag "concerts[]", concert.id, id: "concert_#{concert.id}" %>
-                  <%= concert.start_hour %> - <%= concert.group.name %>
-                </li>
+              <div id="concert_<%= concert.id %>" data-controller="concert-selector" data-action="click->concert-selector#toggleSelection" data-concert-id="<%= concert.id %>" class="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer">
+              <input type="hidden" name="concerts[]" id="concert_input_<%= concert.id %>" value="<%= concert.id %>" disabled>                  
+              <img class="w-full" src="https://www.palaciocongresoshuesca.es/wp-content/uploads/2016/12/LaRaiz.jpg" alt="Foto">
+                  <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2"><%= concert.group.name %></div>
+                  </div>
               </div>
             <% end %>
           </ul>
@@ -27,7 +25,7 @@
       </div>
       <% end %>
 
-      <%= submit_tag 'Generar Agenda', class: 'btn-primary float-right'%>
+      <%= submit_tag 'Generar Agenda', class: 'btn-primary float-left'%>
     </div>
   <% end %>
 
