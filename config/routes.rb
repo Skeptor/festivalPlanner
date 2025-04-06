@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   root "festivals#index"
 
   resources :festivals do
-    post :update_agenda, on: :member
+    resources :agendas, only: %i[create show]
   end
   resources :groups
   resources :stages

@@ -1,11 +1,9 @@
-<% agenda = Agenda.create_or_find_by(festival: ) %>
-
 <div class='origin-center w-full'>
   <div id='festival_name'  class='font-mono text-2xl font-semibold p-6 max-w-sm mx-auto'>
     <%= festival.name %>
   </div>
 
-  <%= form_tag update_agenda_festival_path(festival), method: :post do %>
+  <%= form_tag festival_agendas_path(festival), method: :post do %>
     <div id='stages' class='columns-<%= festival.stages.count %> columns-md gap-4' >
       <% festival.stages.each do |stage| %>
       <div id='stage' class=''>
@@ -13,7 +11,7 @@
           <ul>
             <% stage.concerts.each do |concert| %>
               <div id="concert_<%= concert.id %>" data-controller = "concert-selector" data-action = "click->concert-selector#toggleSelection" class="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer">
-              <input type="hidden" name="concerts[]" id="concert_input_<%= concert.id %>" value="<%= concert.id %>" disabled>                  
+              <input type="hidden" name="concerts[]" id="input_concert_<%= concert.id %>" value="<%= concert.id %>" disabled>                  
               <img class="w-full" src="https://festival-planner-prod.s3.eu-west-3.amazonaws.com/vi%C3%B1arock.jpg" alt="Foto">
                   <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2"><%= concert.group.name %></div>
@@ -28,8 +26,4 @@
       <%= submit_tag 'Generar Agenda', class: 'btn-primary float-left'%>
     </div>
   <% end %>
-
-  <div id='agenda' class=''> 
-    <%= render partial: 'agenda', locals: { agenda: } if !agenda.agenda_concerts.empty? %>
-  </div>
 </div>

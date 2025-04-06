@@ -5,5 +5,7 @@ export default class extends Controller {
 
     toggleSelection() {
         this.element.classList.toggle("selected");
+        let input = document.getElementById('input_' + this.element.id);
+        input.disabled = !input.disabled;
     }
 }

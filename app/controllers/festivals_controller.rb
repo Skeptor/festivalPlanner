@@ -17,25 +17,11 @@ class FestivalsController < ApplicationController
     end
   end
 
-  def update_agenda
-    agenda = GenerateAgendaService.new(festival, concerts).call
-
-    respond_to do |format|
-      format.turbo_stream do
-        render locals: { agenda: }
-      end
-    end
-  end
-
   def festivals
     Festival.all
   end
 
   def festival
     @festival ||= Festival.find(params[:id])
-  end
-
-  def concerts
-    Concert.find(params[:concerts]).sort_by(&:start_time)
   end
 end
