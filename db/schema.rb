@@ -31,8 +31,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_09_184543) do
   create_table "concerts", force: :cascade do |t|
     t.integer "stage_id", null: false
     t.integer "group_id", null: false
-    t.integer "day"
-    t.time "start_time"
+    t.datetime "start_time", null: false
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_concerts_on_group_id"

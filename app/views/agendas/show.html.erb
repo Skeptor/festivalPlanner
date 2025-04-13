@@ -4,20 +4,18 @@
 <div class='origin-center w-full'>
   <h1>Agenda</h1>
 
-  <div id="concert" class="grid grid-cols-1">
-    <% concerts.each do |agenda_concert| %>
-      <div class="block bg-lime-50">
-        Escenario <%= agenda_concert.concert.stage.id %>
-        <%= agenda_concert.concert.start_hour %> - <%= agenda_concert.concert.group.name %>
-      </div>
-    <% end %>
-  </div>
+  <% concerts.each do |agenda_concert| %>
+    <div class="grid grid-cols-1 bg-lime-50">
+      <%= agenda_concert.concert.stage.name %>
+      <%= agenda_concert.concert.start_hour %> - <%= agenda_concert.concert.group.name %>
+    </div>
+  <% end %>
 
   <div id="discarded_concerts" class="grid grid-cols-1">
     <p>Conciertos descartados</p>
     <% discarded_concerts.each do |discarded_concert| %>
         <div class="block bg-red-50">
-          Escenario <%= discarded_concert.concert.stage.id %>
+          <%= discarded_concert.concert.stage.name %>
           <%= discarded_concert.concert.start_hour %> - <%= discarded_concert.concert.group.name %>
         </div>
     <% end %>

@@ -3,8 +3,8 @@ class CreateConcerts < ActiveRecord::Migration[7.2]
     create_table :concerts do |t|
       t.references :stage, null: false, foreign_key: true
       t.references :group, null: false, foreign_key: true
-      t.integer :day
-      t.time :start_time
+      t.datetime :start_time, null: false
+      t.datetime :end_time
 
       t.timestamps
     end
