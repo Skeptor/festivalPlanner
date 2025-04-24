@@ -5,19 +5,25 @@
   <h1>Agenda</h1>
 
   <% concerts.each do |agenda_concert| %>
-    <div class="grid grid-cols-1 bg-lime-50">
-      <%= agenda_concert.concert.stage.name %>
-      <%= agenda_concert.concert.start_hour %> - <%= agenda_concert.concert.group.name %>
+    <div id="concert_<%= agenda_concert.id %>" class="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer py-2 my-2 bg-yellow-100">
+      <input type="hidden" name="agenda_concerts[]" id="input_<%= agenda_concert.id %>" value="<%= agenda_concert.id %>" disabled>                  
+      <div class="px-6 py-4 font-bold text-xl mb-2">
+          <%= agenda_concert.concert.stage.name %>
+          <%= agenda_concert.concert.start_hour %> - <%= agenda_concert.concert.group.name %>
+      </div>
     </div>
   <% end %>
 
   <div id="discarded_concerts" class="grid grid-cols-1">
     <p>Conciertos descartados</p>
     <% discarded_concerts.each do |discarded_concert| %>
-        <div class="block bg-red-50">
+      <div id="concert_<%= discarded_concert.id %>" class="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer py-2 my-2 bg-red-50">
+        <input type="hidden" name="agenda_concerts[]" id="input_<%= discarded_concert.id %>" value="<%= discarded_concert.id %>" disabled>                  
+        <div class="px-6 py-4 font-bold text-xl mb-2">
           <%= discarded_concert.concert.stage.name %>
           <%= discarded_concert.concert.start_hour %> - <%= discarded_concert.concert.group.name %>
         </div>
+      </div>
     <% end %>
   </div>
 </div>
