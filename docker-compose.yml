@@ -6,6 +6,8 @@ services:
     command: bin/dev
     stdin_open: true
     tty: true
+    ports:
+      - "80:3000"
     volumes:
       - .:/planner
       - gem_cache:/usr/local/bundle
