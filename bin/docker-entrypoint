@@ -2,9 +2,9 @@
 
 set -e
 
-# Create database directory if it doesn't exist
-mkdir -p /data
-chmod 0777 /data
+until [ -f /data/production.sqlite3 ]; do
+  sleep 1
+done
 
 # Enable jemalloc for reduced memory usage and latency.
 if [ -z "${LD_PRELOAD+x}" ] && [ -f /usr/lib/*/libjemalloc.so.2 ]; then

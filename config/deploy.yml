@@ -15,12 +15,6 @@ servers:
       traefik.http.routers.preparatufesti.tls: true
       traefik.http.routers.preparatufesti.tls.certresolver: letsencrypt
       traefik.http.services.preparatufesti.loadbalancer.server.port: 3000
-    healthcheck:
-      path: /up
-      interval: 5s
-      timeout: 30s
-      retries: 10
-      start_period: 30s
 
 accessories:
   db:
