@@ -15,15 +15,20 @@ servers:
       traefik.http.routers.preparatufesti.tls: true
       traefik.http.routers.preparatufesti.tls.certresolver: letsencrypt
       traefik.http.services.preparatufesti.loadbalancer.server.port: 3000
+    healthcheck:
+      path: /up
+      interval: 5s
+      timeout: 30s
+      retries: 10
+      start_period: 30s
 
 accessories:
   db:
-    image: alpine:latest  # Lightweight container for volume mounting
-    files:
+    host: 51.44.6.98  # Same host as web server
+    image: alpine:latest
+    volumes:
       - data:/data
-    commands:
-      init: mkdir -p /data
-
+    cmd: sh -c "mkdir -p /data && touch /data/production.sqlite3 && chmod 0666 /data/production.sqlite3 && tail -f /dev/null"
 
 # Credentials for your image host.
 registry:
@@ -48,17 +53,3 @@ env:
 ssh:
   user: ubuntu
   keys: [ "~/.ssh/festivalPlanner-prod.pem" ]
-
-traefik:
-  options:
-    publish:
-      - "443:443"
-    volume:
-      - "/letsencrypt:/letsencrypt"
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-  args:
-    entryPoints.web.address: ":80"
-    entryPoints.websecure.address: ":443"
-    certificatesResolvers.letsencrypt.acme.email: "pablo.navarro@preparatufesti.es"
-    certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json"
-    certificatesResolvers.letsencrypt.acme.httpChallenge.entryPoint: "web"

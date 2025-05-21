@@ -1,5 +1,11 @@
 #!/bin/bash -e
 
+set -e
+
+# Create database directory if it doesn't exist
+mkdir -p /data
+chmod 0777 /data
+
 # Enable jemalloc for reduced memory usage and latency.
 if [ -z "${LD_PRELOAD+x}" ] && [ -f /usr/lib/*/libjemalloc.so.2 ]; then
   export LD_PRELOAD="$(echo /usr/lib/*/libjemalloc.so.2)"

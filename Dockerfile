@@ -63,4 +63,4 @@ ENTRYPOINT ["/planner/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["bundle", "exec", "rails", "server"]
+CMD ["bin/rails", "server"]
