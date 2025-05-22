@@ -13,13 +13,8 @@ proxy:
   ssl: true
   host: preparatufesti.es
 
-accessories:
-  db:
-    host: 51.44.6.98  # Same host as web server
-    image: alpine:latest
-    volumes:
-      - data:/data
-    cmd: sh -c "mkdir -p /data && touch /data/production.sqlite3 && chmod 0666 /data/production.sqlite3 && tail -f /dev/null"
+volumes:
+  - "data:/data"
 
 # Credentials for your image host.
 registry:
@@ -34,9 +29,6 @@ builder:
 env:
   secret:
     - RAILS_MASTER_KEY
-  clear:
-    DB_FILENAME: /data/production.sqlite3
-    RAILS_SERVE_STATIC_FILES: "true"
 
 # Use a different ssh user than root
 #
