@@ -7,14 +7,11 @@ image: skeptor/festivalplanner
 # Deploy to these servers.
 servers:
   web:
-    hosts:
-      - 51.44.6.98
-    labels:
-      traefik.http.routers.preparatufesti.rule: Host(`preparatufesti.es`) && PathPrefix(`/`)
-      traefik.http.routers.preparatufesti.entrypoints: websecure
-      traefik.http.routers.preparatufesti.tls: true
-      traefik.http.routers.preparatufesti.tls.certresolver: letsencrypt
-      traefik.http.services.preparatufesti.loadbalancer.server.port: 3000
+    - 51.44.6.98
+
+proxy:
+  ssl: true
+  host: preparatufesti.es
 
 accessories:
   db:
@@ -35,15 +32,19 @@ builder:
   arch: amd64
 
 env:
+  secret:
+    - RAILS_MASTER_KEY
   clear:
     DB_FILENAME: /data/production.sqlite3
     RAILS_SERVE_STATIC_FILES: "true"
-  secret:
-    - RAILS_MASTER_KEY
-    - SECRET_KEY_BASE
 
 # Use a different ssh user than root
 #
 ssh:
   user: ubuntu
   keys: [ "~/.ssh/festivalPlanner-prod.pem" ]
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  logs: app logs -f
