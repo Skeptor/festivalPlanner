@@ -16,70 +16,27 @@ groups.each do |group|
   Group.create(name: group)
 end
 
-# DAY 1 CONCERTS - May 1, 2025
-Concert.create!(
-  group: Group.find_by(name: "EL TÍO LA CARETA"),
-  stage: Stage.find_by(name: "NEGRITA"),
-  start_time: DateTime.new(2025, 5, 1, 21, 0),
-  end_time: DateTime.new(2025, 5, 1, 21, 55)
-)
-
-Concert.create!(
-  group: Group.find_by(name: "ALADEMOSKA"),
-  stage: Stage.find_by(name: "CUTTY SARK"),
-  start_time: DateTime.new(2025, 5, 1, 22, 0),
-  end_time: DateTime.new(2025, 5, 1, 22, 55)
-)
-
-Concert.create!(
-  group: Group.find_by(name: "EL ÚLTIMO KE ZIERRE"),
-  stage: Stage.find_by(name: "NEGRITA"),
-  start_time: DateTime.new(2025, 5, 1, 23, 0),
-  end_time: DateTime.new(2025, 5, 2, 0, 10)
-)
-
-Concert.create!(
-  group: Group.find_by(name: "NON SERVIUM"),
-  stage: Stage.find_by(name: "CUTTY SARK"),
-  start_time: DateTime.new(2025, 5, 2, 0, 15),
-  end_time: DateTime.new(2025, 5, 2, 1, 45)
-)
-
-Concert.create!(
-  group: Group.find_by(name: "BUHOS"),
-  stage: Stage.find_by(name: "NEGRITA"),
-  start_time: DateTime.new(2025, 5, 2, 1, 50),
-  end_time: DateTime.new(2025, 5, 2, 3, 0)
-)
-
-Concert.create!(
-  group: Group.find_by(name: "AMYGDALA"),
-  stage: Stage.find_by(name: "CUTTY SARK"),
-  start_time: DateTime.new(2025, 5, 2, 3, 5),
-  end_time: DateTime.new(2025, 5, 2, 4, 0)
-)
-
 # DAY 2 CONCERTS - May 2, 2025
 # NEGRITA Stage
 Concert.create!(
   group: Group.find_by(name: "EL NIÑO DE LA HIPOTECA"),
   stage: Stage.find_by(name: "NEGRITA"),
-  start_time: DateTime.new(2025, 5, 2, 16, 35),
-  end_time: DateTime.new(2025, 5, 2, 17, 40)
+  start_time: DateTime.new(2025, 5, 1, 16, 35),
+  end_time: DateTime.new(2025, 5, 1, 17, 40)
 )
 
 Concert.create!(
   group: Group.find_by(name: "EN TOL SARMIENTO"),
   stage: Stage.find_by(name: "NEGRITA"),
-  start_time: DateTime.new(2025, 5, 2, 19, 0),
-  end_time: DateTime.new(2025, 5, 2, 20, 15)
+  start_time: DateTime.new(2025, 5, 1, 19, 0),
+  end_time: DateTime.new(2025, 5, 1, 20, 15)
 )
 
 Concert.create!(
   group: Group.find_by(name: "FERMÍN MUGURUZA"),
   stage: Stage.find_by(name: "NEGRITA"),
-  start_time: DateTime.new(2025, 5, 2, 21, 55),
-  end_time: DateTime.new(2025, 5, 2, 23, 25)
+  start_time: DateTime.new(2025, 5, 1, 21, 55),
+  end_time: DateTime.new(2025, 5, 1, 23, 25)
 )
 
 Concert.create!(
@@ -93,21 +50,21 @@ Concert.create!(
 Concert.create!(
   group: Group.find_by(name: "REINCIDENTES"),
   stage: Stage.find_by(name: "CUTTY SARK"),
-  start_time: DateTime.new(2025, 5, 2, 17, 45),
-  end_time: DateTime.new(2025, 5, 2, 18, 55)
+  start_time: DateTime.new(2025, 5, 1, 17, 45),
+  end_time: DateTime.new(2025, 5, 1, 18, 55)
 )
 
 Concert.create!(
   group: Group.find_by(name: "LÁGRIMAS DE SANGRE"),
   stage: Stage.find_by(name: "CUTTY SARK"),
-  start_time: DateTime.new(2025, 5, 2, 20, 20),
-  end_time: DateTime.new(2025, 5, 2, 21, 50)
+  start_time: DateTime.new(2025, 5, 1, 20, 20),
+  end_time: DateTime.new(2025, 5, 1, 21, 50)
 )
 
 Concert.create!(
   group: Group.find_by(name: "RIOT PROPAGANDA"),
   stage: Stage.find_by(name: "CUTTY SARK"),
-  start_time: DateTime.new(2025, 5, 2, 23, 30),
+  start_time: DateTime.new(2025, 5, 1, 23, 30),
   end_time: DateTime.new(2025, 5, 3, 1, 0) # Next day (overnight)
 )
 
@@ -122,22 +79,22 @@ Concert.create!(
 Concert.create!(
   group: Group.find_by(name: "GRITANDO EN SILENCIO"),
   stage: Stage.find_by(name: "VILLARROBLEDO ARGIMIRO MARTINEZ"),
-  start_time: DateTime.new(2025, 5, 2, 16, 35),
-  end_time: DateTime.new(2025, 5, 2, 17, 40)
+  start_time: DateTime.new(2025, 5, 1, 16, 35),
+  end_time: DateTime.new(2025, 5, 1, 17, 40)
 )
 
 Concert.create!(
   group: Group.find_by(name: "SÍNKOPE"),
   stage: Stage.find_by(name: "VILLARROBLEDO ARGIMIRO MARTINEZ"),
-  start_time: DateTime.new(2025, 5, 2, 19, 0),
-  end_time: DateTime.new(2025, 5, 2, 20, 15)
+  start_time: DateTime.new(2025, 5, 1, 19, 0),
+  end_time: DateTime.new(2025, 5, 1, 20, 15)
 )
 
 Concert.create!(
   group: Group.find_by(name: "CALIFATO 3/4"),
   stage: Stage.find_by(name: "VILLARROBLEDO ARGIMIRO MARTINEZ"),
-  start_time: DateTime.new(2025, 5, 2, 21, 55),
-  end_time: DateTime.new(2025, 5, 2, 23, 25)
+  start_time: DateTime.new(2025, 5, 1, 21, 55),
+  end_time: DateTime.new(2025, 5, 1, 23, 25)
 )
 
 Concert.create!(
@@ -151,21 +108,21 @@ Concert.create!(
 Concert.create!(
   group: Group.find_by(name: "EL DUENDE CALLEJERO"),
   stage: Stage.find_by(name: "BABILONIA"),
-  start_time: DateTime.new(2025, 5, 2, 17, 45),
-  end_time: DateTime.new(2025, 5, 2, 18, 55)
+  start_time: DateTime.new(2025, 5, 1, 17, 45),
+  end_time: DateTime.new(2025, 5, 1, 18, 55)
 )
 
 Concert.create!(
   group: Group.find_by(name: "LA SRA. TOMASA"),
   stage: Stage.find_by(name: "BABILONIA"),
-  start_time: DateTime.new(2025, 5, 2, 20, 20),
-  end_time: DateTime.new(2025, 5, 2, 21, 50)
+  start_time: DateTime.new(2025, 5, 1, 20, 20),
+  end_time: DateTime.new(2025, 5, 1, 21, 50)
 )
 
 Concert.create!(
   group: Group.find_by(name: "GREEN VALLEY"),
   stage: Stage.find_by(name: "BABILONIA"),
-  start_time: DateTime.new(2025, 5, 2, 23, 30),
+  start_time: DateTime.new(2025, 5, 1, 23, 30),
   end_time: DateTime.new(2025, 5, 3, 1, 0) # Next day (overnight)
 )
 
@@ -187,22 +144,22 @@ Concert.create!(
 Concert.create!(
   group: Group.find_by(name: "BEJO"),
   stage: Stage.find_by(name: "JÄGERMEISTER"),
-  start_time: DateTime.new(2025, 5, 2, 16, 30),
-  end_time: DateTime.new(2025, 5, 2, 17, 40)
+  start_time: DateTime.new(2025, 5, 1, 16, 30),
+  end_time: DateTime.new(2025, 5, 1, 17, 40)
 )
 
 Concert.create!(
   group: Group.find_by(name: "LAS NINYAS DEL CORRO"),
   stage: Stage.find_by(name: "JÄGERMEISTER"),
-  start_time: DateTime.new(2025, 5, 2, 19, 0),
-  end_time: DateTime.new(2025, 5, 2, 20, 15)
+  start_time: DateTime.new(2025, 5, 1, 19, 0),
+  end_time: DateTime.new(2025, 5, 1, 20, 15)
 )
 
 Concert.create!(
   group: Group.find_by(name: "MALA RODRÍGUEZ"),
   stage: Stage.find_by(name: "JÄGERMEISTER"),
-  start_time: DateTime.new(2025, 5, 2, 21, 55),
-  end_time: DateTime.new(2025, 5, 2, 23, 25)
+  start_time: DateTime.new(2025, 5, 1, 21, 55),
+  end_time: DateTime.new(2025, 5, 1, 23, 25)
 )
 
 Concert.create!(
@@ -216,29 +173,22 @@ Concert.create!(
 Concert.create!(
   group: Group.find_by(name: "CABALLOS SALVAJES"),
   stage: Stage.find_by(name: "CARPA ROCK"),
-  start_time: DateTime.new(2025, 5, 2, 16, 30),
-  end_time: DateTime.new(2025, 5, 2, 17, 0)
+  start_time: DateTime.new(2025, 5, 1, 16, 30),
+  end_time: DateTime.new(2025, 5, 1, 17, 0)
 )
 
 Concert.create!(
   group: Group.find_by(name: "BULLYS"),
   stage: Stage.find_by(name: "CARPA ROCK"),
-  start_time: DateTime.new(2025, 5, 2, 17, 10),
-  end_time: DateTime.new(2025, 5, 2, 17, 40)
+  start_time: DateTime.new(2025, 5, 1, 17, 10),
+  end_time: DateTime.new(2025, 5, 1, 17, 40)
 )
 
 Concert.create!(
   group: Group.find_by(name: "LA ÉLITE"),
   stage: Stage.find_by(name: "CARPA ROCK"),
-  start_time: DateTime.new(2025, 5, 2, 19, 0),
-  end_time: DateTime.new(2025, 5, 2, 20, 15)
-)
-
-Concert.create!(
-  group: Group.find_by(name: "LINAJE"),
-  stage: Stage.find_by(name: "CARPA ROCK"),
-  start_time: DateTime.new(2025, 5, 2, 21, 55),
-  end_time: DateTime.new(2025, 5, 2, 23, 25)
+  start_time: DateTime.new(2025, 5, 1, 19, 0),
+  end_time: DateTime.new(2025, 5, 1, 20, 15)
 )
 
 Concert.create!(
