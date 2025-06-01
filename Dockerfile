@@ -1,15 +1,15 @@
 # syntax = docker/dockerfile:1
 
 # This Dockerfile is designed for production, not development. Use with Kamal or build'n'run by hand:
-# docker build -t my-app .
-# docker run -d -p 80:80 -p 443:443 --name my-app -e RAILS_MASTER_KEY=<value from config/master.key> my-app
+# docker build -t festivalplanner .
+# docker run -d -p 80:80 -p 443:443 -e RAILS_MASTER_KEY=<value from config/credentials/production.key> --name festivalplanner festivalplanner
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version
 ARG RUBY_VERSION=3.4.2
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
 # Rails app lives here
-WORKDIR /planner
+WORKDIR /rails
 
 # Install base packages
 RUN apt-get update -qq && \
@@ -49,7 +49,7 @@ FROM base
 
 # Copy built artifacts: gems, application
 COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
-COPY --from=build /planner /planner
+COPY --from=build /rails /rails
 
 # Run and own only the runtime files as a non-root user for security
 RUN groupadd --system --gid 1000 rails && \
@@ -67,7 +67,7 @@ RUN mkdir -p /data && \
 USER 1000:1000
 
 # Entrypoint prepares the database.
-ENTRYPOINT ["/planner/bin/docker-entrypoint"]
+ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 80
