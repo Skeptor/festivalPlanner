@@ -14,7 +14,7 @@ proxy:
   host: preparatufesti.es
 
 volumes:
-  - "data:/data"
+  - "store_storage:/rails/storage"
 
 # Credentials for your image host.
 registry:
