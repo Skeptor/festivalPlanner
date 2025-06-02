@@ -382,7 +382,7 @@ DEPENDENCIES
   sqlite3 (>= 1.4)
   stimulus-rails
   tailwindcss-rails (~> 2.7)
-  thruster (~> 0.1.13)
+  thruster
   turbo-rails
   tzinfo-data
   web-console
