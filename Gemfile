@@ -62,3 +62,5 @@ end
 
 gem "tailwindcss-rails", "~> 2.7"
 gem "foreman", "~> 0.88.1"
+
+gem "thruster", "~> 0.1.13"
