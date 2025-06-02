@@ -177,7 +177,7 @@ puts "✅ Escenarios creados o encontrados: #{stage_names.size}"
 
 # Crear conciertos del 6 al 10 de agosto
 stages = stage_names.map { |n| Stage.find_by(name: n) }
-available_groups = group_names.shuffle
+available_groups = groups.shuffle
 festival_dates = (Date.new(2025, 8, 6)..Date.new(2025, 8, 10))
 
 festival_dates.each do |date|
