@@ -2,7 +2,7 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 
-Festival.create(name: "Sonorama Ribera", number_of_days: 4)
+Festival.create(name: "Sonorama Ribera", number_of_days: 5)
 
 groups = [
   "ÁLAMO 51",
@@ -169,7 +169,7 @@ puts "✅ Grupos creados o encontrados: #{groups.size}"
 stage_names = [ "Escenario 1", "Escenario 2", "Escenario 3", "Escenario 4" ]
 
 stage_names.each do |name|
-  Stage.find_or_create_by!(name: name)
+  Stage.find_or_create_by!(name: name, festival: Festival.first)
 end
 
 puts "✅ Escenarios creados o encontrados: #{stage_names.size}"
