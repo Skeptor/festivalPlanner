@@ -1,7 +1,8 @@
-require "spec_helper"
+require "rails_helper"
 
-class AgendaTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+RSpec.describe Agenda do
+  describe "associations" do
+    it { should have_many(:agenda_concerts) }
+    it { should belong_to(:festival) }
+  end
 end

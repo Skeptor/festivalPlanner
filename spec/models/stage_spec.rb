@@ -1,7 +1,8 @@
-require "spec_helper"
+require "rails_helper"
 
-class StageTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+RSpec.describe Stage do
+  describe "associations" do
+    it { should have_many(:concerts) }
+    it { should belong_to(:festival) }
+  end
 end
