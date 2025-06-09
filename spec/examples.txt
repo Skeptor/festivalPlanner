@@ -1,9 +1,9 @@
 example_id                                             | status | run_time        |
 ------------------------------------------------------ | ------ | --------------- |
-./spec/models/agenda_concert_spec.rb[1:1:1]            | failed | 0.00833 seconds |
-./spec/models/agenda_concert_spec.rb[1:1:2]            | failed | 0.00831 seconds |
-./spec/models/agenda_spec.rb[1:1:1]                    | failed | 0.04871 seconds |
-./spec/models/agenda_spec.rb[1:1:2]                    | failed | 0.00677 seconds |
-./spec/models/stage_spec.rb[1:1:1]                     | failed | 0.09068 seconds |
-./spec/models/stage_spec.rb[1:1:2]                     | failed | 0.01566 seconds |
-./spec/services/generate_agenda_service_spec.rb[1:1:1] | failed | 0.09319 seconds |
+./spec/models/agenda_concert_spec.rb[1:1:1]            | passed | 0.00339 seconds |
+./spec/models/agenda_concert_spec.rb[1:1:2]            | passed | 0.00446 seconds |
+./spec/models/agenda_spec.rb[1:1:1]                    | passed | 0.00323 seconds |
+./spec/models/agenda_spec.rb[1:1:2]                    | passed | 0.00622 seconds |
+./spec/models/stage_spec.rb[1:1:1]                     | passed | 0.0258 seconds  |
+./spec/models/stage_spec.rb[1:1:2]                     | passed | 0.01124 seconds |
+./spec/services/generate_agenda_service_spec.rb[1:1:1] | passed | 0.10767 seconds |
