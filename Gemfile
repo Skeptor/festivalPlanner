@@ -25,6 +25,7 @@ gem "image_processing", "~> 1.2"
 gem "tailwindcss-rails"
 gem "foreman", "~> 0.88.1"
 gem "thruster"
+gem "devise"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -44,3 +45,5 @@ group :test do
   gem "selenium-webdriver"
   gem 'shoulda-matchers', '~> 6.0'  # Updated version for Rails 8
 end
+
+gem "tailwindcss-ruby", "~> 4.1"

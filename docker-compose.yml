@@ -9,7 +9,7 @@ services:
     ports:
       - "5000:3000"
     volumes:
-      - .:/planner
+      - .:/rails
       - gem_cache:/usr/local/bundle
 volumes:
   gem_cache:

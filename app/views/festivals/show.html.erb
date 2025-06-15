@@ -12,7 +12,7 @@
             <% stage.concerts.each do |concert| %>
               <div id="concert_<%= concert.id %>" data-controller = "concert-selector" data-action = "click->concert-selector#toggleSelection" class="max-w-sm rounded overflow-hidden shadow-lg cursor-pointer py-2 my-2">
                 <input type="hidden" name="concerts[]" id="input_concert_<%= concert.id %>" value="<%= concert.id %>" disabled>                  
-                <img class="w-5/12" src="https://festival-planner-prod.s3.eu-west-3.amazonaws.com/vi%C3%B1arock.jpg" alt="Foto">
+                <img class="w-5/12" src="https://festival-planner-prod.s3.eu-west-3.amazonaws.com/icon.png" alt="Foto">
                   <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2"><%= concert.group.name %></div>
                   </div>
